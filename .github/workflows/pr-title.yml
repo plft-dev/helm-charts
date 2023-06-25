@@ -26,5 +26,6 @@ jobs:
           scopes: |
             deps
             github
+            external-secrets-refresher
           # Configure that a scope must always be provided.
           requireScope: false
