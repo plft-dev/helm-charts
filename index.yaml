@@ -1,0 +1,23 @@
+apiVersion: v1
+entries:
+  external-secrets-refresher:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-06-25T20:24:56.05421191Z"
+    description: A Helm chart to deploy a kubernetes job to force External secret
+      to refresh
+    digest: 3d77c4fe0baf0502a6b59411b096928ce3cd724be687abbda240921749761c9a
+    home: https://github.com/pltf-dev/helm-charts
+    keywords:
+    - external-secrets
+    - external-secrets-refresher
+    - secrets
+    maintainers:
+    - email: marcel@pltf.dev
+      name: marcel-dias
+    name: external-secrets-refresher
+    type: application
+    urls:
+    - https://github.com/plft-dev/helm-charts/releases/download/external-secrets-refresher-0.1.0/external-secrets-refresher-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-25T20:24:56.05421701Z"
