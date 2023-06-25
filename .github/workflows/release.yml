@@ -5,8 +5,17 @@ on:
     branches:
       - main
 
+# Prevent two release workflows from running concurrently, which might cause WAR race conditions in the repository
+# Ref: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#concurrency
+concurrency: helm-release
+
+permissions:
+  contents: read
+
 jobs:
   release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
