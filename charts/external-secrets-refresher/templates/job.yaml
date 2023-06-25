@@ -1,0 +1,46 @@
+{{- $image := printf "%s:%s" .Values.image.repository (.Values.image.tag) }}
+{{- $name := include "external-secrets-refresher.fullname" . }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $name }}
+  annotations:
+    argocd.argoproj.io/sync-options: Replace=true
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+  labels:
+    {{- include "external-secrets-refresher.labels" . | nindent 4 }}
+spec:
+  ttlSecondsAfterFinished: {{ .Values.ttlSecondsAfterFinished | default 600 }}
+  backoffLimit: {{ .Values.backoffLimit | default 1 }}
+  completions: {{ .Values.completions | default 1 }}
+  parallelism: {{ .Values.parallelism | default 1 }}
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: {{ $name }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ $name }}
+          image: {{ $image | quote }}
+          imagePullPolicy: IfNotPresent
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              echo "Refresh External secrets"
+              SECRET_LIST=$( kubectl get es -n {{ .Release.Namespace }} -o=jsonpath='{.items[*].metadata.name}' )
+
+              for secret in $SECRET_LIST
+              do
+                kubectl annotate es $secret -n {{ .Release.Namespace }} force-sync=$(date +%s) --overwrite
+              done
