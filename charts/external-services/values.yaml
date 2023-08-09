@@ -1,0 +1,5 @@
+---
+services: []
+  # - name: database
+  #   URL: mydatabase.com:3306
+  #   namespace: application
