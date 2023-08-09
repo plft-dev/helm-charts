@@ -1,0 +1,17 @@
+---
+apiVersion: v2
+name: external-services
+description: A Helm chart to provide external services mapping
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+home: https://github.com/pltf-dev/helm-charts
+# icon: https://.svg
+keywords:
+  - external-services
+  - services
+
+maintainers:
+  - name: marcel-dias
+    email: marcel@pltf.dev
