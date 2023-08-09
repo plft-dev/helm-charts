@@ -20,4 +20,22 @@ entries:
     urls:
     - https://github.com/plft-dev/helm-charts/releases/download/external-secrets-refresher-0.1.0/external-secrets-refresher-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-25T20:24:56.05421701Z"
+  external-services:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-08-09T18:18:38.285572239Z"
+    description: A Helm chart to provide external services mapping
+    digest: 4faaa8eaa9e3a1b422a783e1faa2e7c0fb431f91c2eacd13734f956073d8a469
+    home: https://github.com/pltf-dev/helm-charts
+    keywords:
+    - external-services
+    - services
+    maintainers:
+    - email: marcel@pltf.dev
+      name: marcel-dias
+    name: external-services
+    type: application
+    urls:
+    - https://github.com/pltf-dev/helm-charts/releases/download/external-services-0.1.0/external-services-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-08-09T18:18:38.28557824Z"
