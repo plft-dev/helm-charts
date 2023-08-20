@@ -24,17 +24,3 @@ tests:
       - equal:
           path: spec.template.spec.containers[0].image
           value: test-image:v0.0.1
-  # - it: service without name
-  #   set:
-  #     services:
-  #       - URL: mydatabase.com:3306
-  #   asserts:
-  #     - failedTemplate:
-  #         errorMessage: Service Name is required!
-  # - it: service without URL
-  #   set:
-  #     services:
-  #       - name: myservice
-  #   asserts:
-  #     - failedTemplate:
-  #         errorMessage: Service URL is required!
