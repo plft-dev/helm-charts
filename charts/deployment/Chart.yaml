@@ -1,0 +1,19 @@
+---
+apiVersion: v2
+name: deployment
+description: A Helm chart to deploy a sigle deployment into Kubernetes
+
+type: application
+version: 0.1.0
+appVersion: "latest"
+
+home: https://github.com/pltf-dev/helm-charts
+# icon: https://.svg
+keywords:
+  - deployment
+  - deployment-only
+  - single-deployment
+
+maintainers:
+  - name: marcel-dias
+    email: marcel@pltf.dev
