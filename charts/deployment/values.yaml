@@ -12,6 +12,11 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+command: []
+  # - sleep
+args: []
+  # - infinity
+
 env: []
   # - name: APP_NAME
   #   value: "Deployment"

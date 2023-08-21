@@ -24,3 +24,18 @@ tests:
       - equal:
           path: spec.template.spec.containers[0].image
           value: test-image:v0.0.1
+  - it: test command and args
+    set:
+      command:
+        - sleep
+      args:
+        - infinity
+    asserts:
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.containers[0].command
+          value: [sleep]
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value: [infinity]
