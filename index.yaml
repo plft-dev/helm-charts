@@ -3,6 +3,24 @@ entries:
   deployment:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-08-21T02:28:25.850324722Z"
+    description: A Helm chart to deploy a sigle deployment into Kubernetes
+    digest: 65583a31288b9c8ca141089937f6d4eb4cc2be9363dcfb81c31a1af09712d9d8
+    home: https://github.com/pltf-dev/helm-charts
+    keywords:
+    - deployment
+    - deployment-only
+    - single-deployment
+    maintainers:
+    - email: marcel@pltf.dev
+      name: marcel-dias
+    name: deployment
+    type: application
+    urls:
+    - https://github.com/pltf-dev/helm-charts/releases/download/deployment-0.2.0/deployment-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-08-20T03:20:53.493301845Z"
     description: A Helm chart to deploy a sigle deployment into Kubernetes
     digest: 2d4190f015e5544623f2dd70265e1a27310d77009e158c9659f3390f7f66373f
@@ -57,4 +75,4 @@ entries:
     urls:
     - https://github.com/pltf-dev/helm-charts/releases/download/external-services-0.1.0/external-services-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-20T03:20:53.493328846Z"
+generated: "2023-08-21T02:28:25.85064003Z"
