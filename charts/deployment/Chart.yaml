@@ -4,7 +4,7 @@ name: deployment
 description: A Helm chart to deploy a sigle deployment into Kubernetes
 
 type: application
-version: 0.1.0
+version: 0.2.0
 appVersion: "latest"
 
 home: https://github.com/pltf-dev/helm-charts
