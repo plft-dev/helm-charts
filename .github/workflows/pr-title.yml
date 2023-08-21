@@ -25,7 +25,9 @@ jobs:
         with:
           scopes: |
             deps
+            docs
             github
+            deployments
             external-secrets-refresher
             external-services
           # Configure that a scope must always be provided.
