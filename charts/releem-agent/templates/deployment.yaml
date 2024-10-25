@@ -59,11 +59,11 @@ spec:
           envFrom:
             {{- if .Values.secret.create }}
             - secretRef:
-              name: {{ include "releem-agent.fullname" . }}-secret
+                name: {{ include "releem-agent.fullname" . }}-secret
             {{- end }}
             {{- if .Values.externalSecrets.enabled }}
             - secretRef:
-              name: {{ include "releem-agent.fullname" . }}-es
+                name: {{ include "releem-agent.fullname" . }}-es
             {{- end }}
           {{- end }}
           lifecycle:
