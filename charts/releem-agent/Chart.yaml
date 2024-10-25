@@ -1,0 +1,23 @@
+apiVersion: v2
+name: releem-agent
+description: Releem agent Helm chart for Kubernetes
+
+type: application
+version: 0.1.0
+
+# agetn version
+appVersion: "1.19.4.4"
+
+home: https://releem.com/
+
+sources:
+  - https://github.com/Releem
+  - https://github.com/pltf-dev/helm-charts/tree/main/charts/releem-agent
+
+keywords:
+  - releem
+  - releem-agent
+
+maintainers:
+  - name: marcel-dias
+    email: marcel@pltf.dev

@@ -1,0 +1,118 @@
+# Default values for releem-agent.
+
+replicaCount: 1
+
+image:
+  repository: releem/releem-agent
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+config:
+  debug: "false"
+  memoryLimit: "0"
+  releemEnv: "prod"
+  releemHostname: "releem"
+  queryOptimization: "false"
+  awsRegion: "us-east-1"
+  # instanceType can be "local" or "aws/rds"
+  instanceType: "local"
+  intervalGenerateConfigSeconds: "43200"
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+secret:
+  create: false
+  data:
+    RELEEM_API_KEY: ""
+    DB_PASSWORD: ""
+    DB_HOST: ""
+    DB_PORT: "3306"
+
+externalSecrets:
+  enabled: false
+  secretStore:
+    name: secrets-store-cluster
+    type: ClusterSecretStore
+  dataFrom: {}
+  # - find:
+  #     path: /releem
+  #     name:
+  #       regexp: "RELEEM.*"
+  #   rewrite:
+  #     - regexp:
+  #         source: "/releem/(.*)"
+  #         target: "$1"
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 1Gi
+  requests:
+    cpu: 250m
+    memory: 512Mi
+
+livenessProbe: {}
+  # exec:
+  #   command: ["cat", "/proc/1/cmdline"]
+readinessProbe: {}
+  # exec:
+  #   command: ["cat", "/proc/1/cmdline"]
+
+lifecycle: {}
+  # preStop:
+  #   exec:
+  #     command: ["kill", "-TSTP", "1"]
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
