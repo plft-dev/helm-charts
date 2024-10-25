@@ -46,11 +46,11 @@ spec:
             - name: RELEEM_HOSTNAME
               value: {{ .Values.config.releemHostname }}
             - name: RELEEM_INTERVAL_GENERATE_CONFIG_SECONDS
-              value: {{ .Values.config.intervalGenerateConfigSeconds }}
+              value: {{ .Values.config.intervalGenerateConfigSeconds | quote }}
             - name: RELEEM_QUERY_OPTIMIZATION
               value: {{ .Values.config.queryOptimization }}
             - name: MEMORY_LIMIT
-              value: {{ .Values.config.memoryLimit }}
+              value: {{ .Values.config.memoryLimit | quote }}
             - name: AWS_REGION
               value: {{ .Values.config.awsRegion }}
             - name: INSTANCE_TYPE
