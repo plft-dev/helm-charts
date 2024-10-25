@@ -40,21 +40,21 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: RELEEM_DEBUG
-              value: {{ .Values.config.debug }}
+              value: {{ .Values.config.debug | quote  }}
             - name: RELEEM_ENV
-              value: {{ .Values.config.releemEnv }}
+              value: {{ .Values.config.releemEnv | quote  }}
             - name: RELEEM_HOSTNAME
-              value: {{ .Values.config.releemHostname }}
+              value: {{ .Values.config.releemHostname | quote  }}
             - name: RELEEM_INTERVAL_GENERATE_CONFIG_SECONDS
               value: {{ .Values.config.intervalGenerateConfigSeconds | quote }}
             - name: RELEEM_QUERY_OPTIMIZATION
-              value: {{ .Values.config.queryOptimization }}
+              value: {{ .Values.config.queryOptimization | quote  }}
             - name: MEMORY_LIMIT
               value: {{ .Values.config.memoryLimit | quote }}
             - name: AWS_REGION
-              value: {{ .Values.config.awsRegion }}
+              value: {{ .Values.config.awsRegion | quote  }}
             - name: INSTANCE_TYPE
-              value: {{ .Values.config.instanceType }}
+              value: {{ .Values.config.instanceType | quote  }}
           {{- if or .Values.secret.create .Values.externalSecrets.enabled }}
           envFrom:
             {{- if .Values.secret.create }}
