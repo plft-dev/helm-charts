@@ -19,9 +19,9 @@ config:
   releemHostname: "releem"
   queryOptimization: "false"
   awsRegion: "us-east-1"
-  instanceType: "local" # "aws/rds"
+  # instanceType can be "local" or "aws/rds"
+  instanceType: "local"
   intervalGenerateConfigSeconds: "43200"
-
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -35,7 +35,7 @@ serviceAccount:
   name: ""
 
 secret:
-  create: true
+  create: false
   data:
     RELEEM_API_KEY: ""
     DB_PASSWORD: ""
@@ -71,7 +71,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-resources: 
+resources:
   limits:
     cpu: "1"
     memory: 1Gi
