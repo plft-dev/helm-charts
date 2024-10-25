@@ -61,7 +61,7 @@ spec:
             - secretRef:
               name: {{ include "releem-agent.fullname" . }}-secret
             {{- end }}
-            {{ if .Values.externalSecrets.enabled }}
+            {{- if .Values.externalSecrets.enabled }}
             - secretRef:
               name: {{ include "releem-agent.fullname" . }}-es
             {{- end }}
